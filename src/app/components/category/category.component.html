@@ -5,8 +5,9 @@
           <th>Category Name</th>
       </tr>
   </thead>
-  <tr *ngFor="let category of categories">
-      <td>{{category.categoryId}}</td>
-      <td>{{category.categoryName}}</td>
+  <tr (click)="setCurrentCategory(category)"  *ngFor="let category of categories" >
+      <td >{{category.categoryId}}</td>
+      <td [class]="getCurrentCategoryClass(category)">{{category.categoryName}}</td>
   </tr>
 </table>
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}} seçtiniz</h5>
